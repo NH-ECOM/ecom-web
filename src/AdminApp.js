@@ -3,7 +3,7 @@ import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
 
 import './styles/App.css';
-import MainApp from './MainApp';
+import AdminMainApp from './AdminMainApp';
 
 const theme = createMuiTheme({
   typography: {
@@ -36,7 +36,7 @@ class App extends PureComponent {
     return (
         <ThemeProvider theme={theme}>
           <div className='App'>
-            <MainApp />
+            <AdminMainApp />
           </div>
         </ThemeProvider>
     );
