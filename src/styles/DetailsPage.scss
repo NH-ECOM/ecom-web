@@ -1,0 +1,78 @@
+.image img {
+  height: 450px;
+  border: 1px solid rgb(247, 238, 238);
+  float: left;
+  margin-right: 10px;
+}
+pre {
+  font-size: 17px;
+  font-family: unset;
+}
+.span {
+  color: rgb(14, 13, 13);
+  margin-left: 10px;
+  font-size: medium;
+}
+.localicon {
+  margin-right: 10px;
+}
+.iconsize {
+  font-size: 18px !important;
+  position: relative !important;
+  top: 6px;
+}
+.buttondiv {
+  height: 100px;
+  width: 450px;
+}
+.addcart {
+  height: 60px;
+  width: 220px;
+  margin-right: 10px !important;
+  background-color: yellowgreen !important;
+  color: white !important;
+  font-weight: bold !important;
+}
+.buynow {
+  height: 60px;
+  width: 220px;
+  background-color: rgba(80, 117, 5, 0.884) !important;
+  color: white !important;
+  font-weight: bold !important;
+}
+
+#standard-basic {
+  float: left;
+}
+#deltext {
+  float: left;
+}
+.image {
+  height: 450px;
+}
+.delivery {
+  float: left;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  width: fit-content;
+  label {
+    font-size: 18px;
+    margin-right: 10px;
+    margin-top: 3px;
+  }
+  input {
+    min-width: 18em;
+    height: 37px;
+    padding: 0px 10px;
+    font-size: 15px;
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f3f3f3;
+    border: 0;
+    border-radius: 4px;
+    transition: all 250ms ease-in-out;
+  }
+}
