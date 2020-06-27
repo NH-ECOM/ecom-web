@@ -20,9 +20,9 @@ export default class Routes extends Component {
               path='/admin/panel/product'
             />
             <ProtectedRoute
-                component={OrdersPage}
-                exact
-                path='/admin/panel/orders'
+              component={OrdersPage}
+              exact
+              path='/admin/panel/orders'
             />
             <Route extract path='*' component={() => '404 Not Found'} />
           </Switch>

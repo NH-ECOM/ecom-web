@@ -1,0 +1,131 @@
+.root {
+  background-attachment: fixed;
+  padding-left: 100px;
+  float: left;
+  height: 60px !important;
+}
+.logsign {
+  padding-top: 80px;
+  padding-left: 30px;
+  width: 900px;
+}
+.lognum {
+  background-color: white;
+  color: black;
+  padding-left: 10px;
+  margin-left: 30px;
+  padding-right: 10px;
+  margin-right: 40px;
+}
+.logtypo {
+  background-image: linear-gradient(to right, #293348, #1565c0);
+  color: ghostwhite;
+  font-weight: bold;
+  height: 30px;
+  padding-top: 10px;
+}
+.insidelogin {
+  padding-left: 50px;
+  float: left;
+  padding-top: 30px;
+  padding-right: 120px;
+}
+.standard-secondary {
+  width: 300px;
+}
+.btncon {
+  width: 300px;
+  height: 50px;
+  background-color: orangered !important;
+  font-weight: bold !important;
+  color: papayawhip !important;
+}
+.policy {
+  font-size: smaller !important;
+}
+.advlogin {
+  padding-top: 30px;
+}
+.advcolor {
+  color: rebeccapurple;
+}
+.iconsize {
+  font-size: 18px !important;
+  position: relative !important;
+  top: 4px !important;
+}
+.Deliveryaddress {
+  width: 900px;
+  padding-left: 30px;
+  height: 60px;
+}
+.deliverytext {
+  background-color: white;
+  color: black;
+  padding-left: 10px;
+  margin-left: 30px;
+  padding-right: 10px;
+  margin-right: 40px;
+}
+.delivery {
+  background-color: silver;
+}
+#panel-header {
+  background-color: rgb(58, 82, 223);
+  padding-top: 5px;
+  color: snow;
+}
+#outlined-basic {
+  width: 300px;
+}
+#address {
+  width: 650px;
+  height: 60px;
+}
+#standard-select {
+  width: 300px;
+}
+.inputne {
+  width: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding-left: 10px;
+}
+#amount {
+  font-weight: bold;
+  color: rgb(202, 119, 63);
+}
+.incrDECR {
+  width: 35px !important;
+  height: 20px !important;
+}
+.sucess {
+  height: 30px;
+  width: 850px;
+  padding-left: 20px;
+  padding-top: 10px;
+  background-color: rgb(247, 212, 166);
+}
+#valid {
+  color: teal;
+}
+
+.phonepaybody {
+  background-color: rgb(246, 248, 248);
+  width: 865px;
+  height: 150px;
+}
+#phonepayText {
+  margin-left: 20px;
+}
+#cvv {
+  width: 50px;
+  height: 10px;
+}
+.paybtn {
+  width: 200px;
+  height: 50px;
+  background-color: orangered !important;
+  font-weight: bold !important;
+  color: papayawhip !important;
+}
