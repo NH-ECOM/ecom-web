@@ -14,13 +14,25 @@ export default class DetailsPage extends Component {
     super(props);
     this.state = {
       redirect: false,
+      cartTextButton:"ADD TO CART",
       product: {},
+      cartproducts:[],
+      count: 0,
     };
   }
 
   async componentDidMount() {
+
     await this.setProductDetails();
     console.log('state : ' + JSON.stringify(this.state));
+    const alreadyInCart=JSON.parse(localStorage.getItem("cartProductStore"));
+    alreadyInCart.forEach(prod => {
+      if(this.state.product.id === prod.id){
+        this.setState({
+          cartTextButton:"IN CART",
+        });
+      }
+    });
   }
 
   async setProductDetails() {
@@ -33,6 +45,23 @@ export default class DetailsPage extends Component {
     }
   }
 
+  handleCart=()=>{
+    
+    console.log("clicked");
+    
+    const cartproduct = this.state.product;
+    const allCartProducts = [];
+    allCartProducts.push(cartproduct);
+    
+    this.setState({ cartproducts: allCartProducts });
+    
+        
+    this.props.history.push({
+        pathname: '/cart',
+        cartproductDetails: allCartProducts,
+        });
+  };
+      
   goCheckout = () => {
     this.props.history.push('/checkout');
   };
@@ -98,14 +127,18 @@ export default class DetailsPage extends Component {
               onChange={this.handleChange}
             />
           </div>
-        </div>
+        </div><br/>
         <div className='buttondiv'>
           <Button
             className='addcart'
             variant='contained'
             startIcon={<ShoppingCartIcon />}
+            onClick={this.handleCart}
+            disabled={
+              (this.state.cartTextButton === "IN CART")
+            }
           >
-            ADD TO CART
+            {this.state.cartTextButton}
           </Button>
           <Button
             className='buynow'

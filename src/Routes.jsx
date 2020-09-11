@@ -5,6 +5,7 @@ import { Paper } from '@material-ui/core';
 import OrderPlaced from './components/OrderPlaced';
 import HomePage from './components/HomePage';
 import DetailsPage from './components/DetailsPage';
+import Cart from './components/Cart';
 
 import ProtectedRoute from './ProtectedRoute';
 
@@ -20,6 +21,11 @@ export default class Routes extends Component {
               component={OrderPlaced}
               exact
               path='/orderplaced'
+            />
+            <ProtectedRoute
+              component={Cart}
+              exact
+              path='/cart'
             />
             <Route extract path='*' component={() => '404 Not Found'} />
           </Switch>

@@ -8,10 +8,6 @@ import {
   FormControl,
   FormLabel,
   Icon,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogTitle,
   ExpansionPanel,
   ExpansionPanelSummary,
   ExpansionPanelDetails,
@@ -20,6 +16,7 @@ import {
   Toolbar,
   Typography,
   Button,
+  Paper
 } from '@material-ui/core';
 
 import AddIcon from '@material-ui/icons/Add';
@@ -29,7 +26,10 @@ import NotificationsIcon from '@material-ui/icons/Notifications';
 import LocalShippingIcon from '@material-ui/icons/LocalShipping';
 
 class Checkout extends Component {
-  state = {
+  constructor(props){
+    super(props);
+  
+  this.state = {
     expanded: 'panel0',
     indiaStates: [
       { value: '--Select State--' },
@@ -85,7 +85,23 @@ class Checkout extends Component {
     cardname: '',
     cardnumber: '',
     cvv: '',
+    product:{},
   };
+}
+  async componentDidMount() {
+    await this.setProductDetails();
+    console.log('state : ' + JSON.stringify(this.state));
+  }
+
+  async setProductDetails() {
+    if (this.props.location.productDetails) {
+      const product = this.props.location.productDetails;
+      this.setState({ product: product });
+      localStorage.setItem('product', JSON.stringify(product));
+    } else if (localStorage.getItem('product')) {
+      this.setState({ product: JSON.parse(localStorage.getItem('product')) });
+    }
+  }
   paypal = (e) => {
     window.open('https://www.paypal.com/in/home', '_blank');
   };
@@ -117,17 +133,9 @@ class Checkout extends Component {
   handleEmailChange = (e) => {
     this.setState({ email: e.target.value });
   };
-  handleOpenDialog = () => {
-    this.setState({
-      openDialog: true,
-    });
-  };
-
-  handleCloseDialog = () => {
-    this.setState({
-      openDialog: false,
-    });
-  };
+  handleOrder=()=>{
+    this.props.history.push('/orderplaced');
+  }
   operation1 = () => {
     this.setState({
       showMe1: !this.state.showMe1,
@@ -465,7 +473,7 @@ class Checkout extends Component {
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                   <span id='amount'>Your Total Amount is </span>
                   &nbsp;
-                  <strong>{this.state.quantity * 35}</strong>
+                  <strong>{this.state.quantity * parseInt(this.state.product.priceInt)}</strong>
                   &nbsp;
                   <strong>Rs..</strong>
                 </Typography>
@@ -638,35 +646,10 @@ class Checkout extends Component {
                           <Button
                             variant='contained'
                             className='btncon'
-                            onClick={this.handleOpenDialog}
-                            raised
-                            ripple
+                            onClick={this.handleOrder}
                           >
                             CONTINUE
                           </Button>
-                          <Dialog
-                            open={this.state.openDialog}
-                            onCancel={this.handleCloseDialog}
-                          >
-                            <DialogTitle>Placed Order</DialogTitle>
-                            <DialogContent>
-                              <h4>Your Order is successfully Placed...</h4>
-                            </DialogContent>
-                            <DialogActions>
-                              <Button
-                                type='button'
-                                onClick={this.handleCloseDialog}
-                              >
-                                OK
-                              </Button>
-                              <Button
-                                type='button'
-                                onClick={this.handleCloseDialog}
-                              >
-                                Close
-                              </Button>
-                            </DialogActions>
-                          </Dialog>
                         </div>
                       ) : null}
                     </div>
@@ -676,6 +659,22 @@ class Checkout extends Component {
             </ExpansionPanelDetails>
           </ExpansionPanel>
         </div>
+        <div className="Summary"> 
+            <Paper >
+              SUMMARY
+              <br/><br/>
+              <Typography variant='subheading1'>Product name:&nbsp;&nbsp;{this.state.product.name}</Typography>
+              <br/>
+              <Typography variant='subheadinh1'>Product Quantity:&nbsp;&nbsp;{this.state.quantity}
+              </Typography><br/><br/>
+              <span id='amount'>Your Total Amount is </span>
+                  &nbsp;
+                  <strong>{this.state.quantity * parseInt(this.state.product.priceInt)}</strong>
+                  &nbsp;
+                  <strong>Rs..</strong>
+
+            </Paper>
+          </div>
       </div>
     );
   }
