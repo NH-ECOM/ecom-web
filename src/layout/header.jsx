@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import Auth from '../Auth';
-
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import {
     AppBar,
     IconButton,
     Toolbar,
     Typography,
-    Grid
+    Grid,
+    Badge
 } from '@material-ui/core';
 import {
     ExitToApp,
@@ -18,6 +19,26 @@ import {
 import '../styles/Header.scss';
 
 class Header extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            count: 0,
+            show: true
+        };
+      }
+
+    componentDidMount() {
+        const counter = JSON.parse(localStorage.getItem("cartProductStore")).length;
+        this.setState({ count: counter })
+    };
+
+    // componentDidUpdate() {
+    //     var counter1 = JSON.parse(localStorage.getItem("products"))
+    //     if (counter1 !== this.state.count) {
+    //         this.setState({ count: counter1 })
+    //     }
+    // }
+
     render() {
         const { open, onOpen, onClose } = this.props;
         return (
@@ -60,19 +81,35 @@ class Header extends Component {
                                     <Link to='/'>eCom</Link>
                                 </Typography>
                             </Grid>
-
+                            
                             <Grid
                                 item
                                 md={1}
                                 xs={3}
                                 className='account-notification-container'
                             >
+    
                                 <Grid
                                     container
                                     direction='row'
                                     justify='space-evenly'
                                     alignItems='center'
                                 >
+                                    <Grid item>
+                                        <IconButton
+                                            aria-label='cart'
+                                            color='inherit'
+                                            tooltip={'Cart'}
+                                            onClick={() => {
+                                                    this.props.history.push('/cart');
+                                                }
+                                            }>
+                                    <Badge badgeContent={this.state.count} color="secondary" showZero>
+                                    
+                                            <ShoppingCartIcon/>
+                                            </Badge>
+                                        </IconButton>
+                                    </Grid>
                                     <Grid item>
                                         <IconButton
                                             aria-label='Sign Out'

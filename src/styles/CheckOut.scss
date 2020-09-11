@@ -56,6 +56,7 @@
 }
 .Deliveryaddress {
   width: 900px;
+  float: left;
   padding-left: 30px;
   height: 60px;
 }
@@ -128,4 +129,9 @@
   background-color: orangered !important;
   font-weight: bold !important;
   color: papayawhip !important;
+}
+.Summary{
+  float: left;
+  padding-left: 40px;
+  padding-top: 40px;
 }
