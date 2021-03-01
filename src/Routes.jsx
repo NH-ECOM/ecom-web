@@ -12,8 +12,8 @@ import ProtectedRoute from './ProtectedRoute';
 export default class Routes extends Component {
   render() {
     return (
-      <main className='main-body'>
-        <Paper className='main-body-container'>
+      <main>
+        <Paper>
           <Switch>
             <ProtectedRoute component={HomePage} exact path='/' />
             <ProtectedRoute component={DetailsPage} exact path='/details' />

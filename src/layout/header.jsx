@@ -25,10 +25,13 @@ class Header extends Component {
             count: 0,
             show: true
         };
-      }
+    }
 
     componentDidMount() {
-        const counter = JSON.parse(localStorage.getItem("cartProductStore")).length;
+        var counter = 0;
+        if (localStorage.getItem("cartProductStore")) {
+            counter = JSON.parse(localStorage.getItem("cartProductStore")).length;
+        }
         this.setState({ count: counter })
     };
 
@@ -51,11 +54,11 @@ class Header extends Component {
                             justify='space-around'
                             alignItems='center'
                         >
-                            <Grid item>
+                            {/* <Grid item>
                                 {open ? (
                                     <IconButton
                                         className='menu-button'
-                                        color='inherit'
+                                        color='#fff'
                                         edge='start'
                                         onClick={onClose}
                                     >
@@ -64,49 +67,38 @@ class Header extends Component {
                                 ) : (
                                     <IconButton
                                         className='menu-button'
-                                        color='inherit'
+                                        color='#fff'
                                         edge='start'
                                         onClick={onOpen}
                                     >
                                         <MenuRounded />
                                     </IconButton>
                                 )}
-                            </Grid>
+                            </Grid> */}
 
                             <Grid item md={7} xs={3}>
-                                <Typography className='title' variant='h5'>
+                                <Typography className='title' variant='h5' color="#fff">
                                     <Link to='/'>eCom</Link>
                                 </Typography>
-                                <Typography className='titleSmall' variant='h5'>
+                                <Typography className='titleSmall' variant='h5' color="#fff">
                                     <Link to='/'>eCom</Link>
                                 </Typography>
                             </Grid>
-                            
-                            <Grid
-                                item
-                                md={1}
-                                xs={3}
-                                className='account-notification-container'
-                            >
-    
-                                <Grid
-                                    container
-                                    direction='row'
-                                    justify='space-evenly'
-                                    alignItems='center'
-                                >
+
+                            <Grid item md={1} xs={3} className='account-notification-container'>
+                                <Grid container direction='row' justify='space-evenly' alignItems='center'>
                                     <Grid item>
                                         <IconButton
                                             aria-label='cart'
-                                            color='inherit'
+                                            color='#fff'
                                             tooltip={'Cart'}
                                             onClick={() => {
-                                                    this.props.history.push('/cart');
-                                                }
+                                                this.props.history.push('/cart');
+                                            }
                                             }>
-                                    <Badge badgeContent={this.state.count} color="secondary" showZero>
-                                    
-                                            <ShoppingCartIcon/>
+                                            <Badge badgeContent={this.state.count} color="secondary" showZero>
+
+                                                <ShoppingCartIcon />
                                             </Badge>
                                         </IconButton>
                                     </Grid>
@@ -118,7 +110,7 @@ class Header extends Component {
                                                     this.props.history.push('/');
                                                 });
                                             }}
-                                            color='inherit'
+                                            color='#fff'
                                             tooltip={'Sign Out'}
                                         >
                                             <ExitToApp />

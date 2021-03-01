@@ -12,7 +12,7 @@ export default class Routes extends Component {
   render() {
     return (
       <main className='main-body'>
-        <Paper className='main-body-container'>
+        <Paper>
           <Switch>
             <ProtectedRoute
               component={ProductPage}

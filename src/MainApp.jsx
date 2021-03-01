@@ -4,6 +4,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 
 import Routes from './Routes';
 import Header from './layout/header';
+import './styles/main.scss';
 
 export default function MainApp() {
     const [open, setOpen] = React.useState(false);
@@ -19,12 +20,17 @@ export default function MainApp() {
     return (
         <div className='main-app-container'>
             <CssBaseline />
-            <Header
-                open={open}
-                onOpen={handleDrawerOpen}
-                onClose={handleDrawerClose}
-            />
-            <Routes />
+            <div className="main-header-container">
+                <Header
+                    open={open}
+                    onOpen={handleDrawerOpen}
+                    onClose={handleDrawerClose}
+                />
+            </div>
+            <div className="main-body-container">
+                <Routes />
+            </div>
+            
         </div>
     );
 }
