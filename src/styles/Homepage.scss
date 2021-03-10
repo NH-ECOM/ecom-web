@@ -6,29 +6,25 @@
 }
 
 .search-container {
-  margin-bottom: 2em;
-  width: auto;
+  width: 50%;
   clear: both;
-  text-align: center;
 }
 
 .search-item {
-  width: 35%;
+  width: 60%;
 }
 
-.product-image img {
-  //transition: transform .5s ease;
-  //box-shadow: 2px 2px 3px ;
+.product-image {
+  img {
+    text-align: center;
+    display: block;
+    align-items: center;
+    height: 150px;
+  }
 }
 .product-image:hover img {
   //transform: scale(1.2);
   //box-shadow: 2px 2px 3px ;
-}
-img {
-  text-align: center;
-  display: block;
-  align-items: center;
-  height: 150px;
 }
 
 .product-name {
@@ -195,4 +191,71 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.item-category-link {
+  color: #1a181e;
+  text-transform: capitalize;
+  padding: 6px 8px 6px 0;
+  display: block;
+  font-size: 16px;
+  line-height: 24px;
+  height: 36px;
+  cursor: pointer;
+  border-right: 4px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.item-category-link.active {
+  color: #146eb4;
+  font-weight: 500;
+  background-image: -webkit-gradient(linear,right top,left top,from(rgba(20,110,180,.08)),to(rgba(20,110,180,0)));
+  background-image: -webkit-linear-gradient(right,rgba(20,110,180,.08),rgba(20,110,180,0));
+  background-image: linear-gradient(270deg,rgba(20,110,180,.08),rgba(20,110,180,0));
+  border-right-color: #146eb4;
+}
+
+.filter-categories {
+  margin-left: 10em ;
+}
+
+.empty-cart {
+  width: 80%;
+  background-image: url("../images/emptyCart.jpg");
+  height: 300px;
+}
+
+.cart-items-header {
+  width: 100%;
+}
+
+.cart-header-text {
+  width: 50%;
+  float: left;
+}
+
+.cart-items-count {
+  background-color: #146eb4;
+  border-radius: 4px;
+  padding: 2px 6px;
+  color: #fff;
+  margin-left: 6px;
+  font-size: 16px;
+  line-height: 18px;
+  font-weight: 500;
+  min-width: 29px;
+  text-align: center;
+  display: inline-block;
+}
+
+.clear-cart {
+  font-size: 16px;
+  line-height: 20px;
+  cursor: pointer;
+  border-bottom: 1px solid #4d4d4d;
+  color: #4d4d4d;
+  width: 13%;
+  float: left;
+  padding-top: 1.01em;
 }
